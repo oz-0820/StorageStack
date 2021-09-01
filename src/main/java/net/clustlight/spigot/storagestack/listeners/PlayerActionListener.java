@@ -33,7 +33,7 @@ public class PlayerActionListener implements Listener {
         Action action = event.getAction();
         ItemStack item = event.getItem();
 
-        if (item == null || !(event.getHand() == EquipmentSlot.HAND)) {
+        if (item == null) {
             return;
         }
 
@@ -102,7 +102,9 @@ public class PlayerActionListener implements Listener {
     public void onBlockPlace(BlockPlaceEvent event) {
         Player player = event.getPlayer();
         Block block = event.getBlockPlaced();
-        ItemStack item = player.getInventory().getItemInMainHand();
+        ItemStack item = (event.getHand().equals(EquipmentSlot.HAND)) ?
+                player.getInventory().getItemInMainHand() : player.getInventory().getItemInOffHand();
+
         if (!item.hasItemMeta() || !item.getType().isBlock() || !item.getItemMeta().hasEnchants()) {
             return;
         }
