@@ -57,12 +57,12 @@ public class PlayerActionListener implements Listener {
     }
 
     @EventHandler
-    public void onClick(InventoryClickEvent event){
-        if(event.getClickedInventory() == null) {
+    public void onClick(InventoryClickEvent event) {
+        if (event.getClickedInventory() == null) {
             return;
         }
-        if(event.getClickedInventory().getHolder() instanceof StorageScreen) {
-            if (event.getSlot() != 4){
+        if (event.getClickedInventory().getHolder() instanceof StorageScreen) {
+            if (event.getSlot() != 4) {
                 event.setCancelled(true);
                 Player player = (Player) event.getWhoClicked();
                 player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_HARP, 1, 5);
@@ -71,16 +71,16 @@ public class PlayerActionListener implements Listener {
     }
 
     @EventHandler
-    public void onInventoryClose(InventoryCloseEvent event){
+    public void onInventoryClose(InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
 
-        if(event.getView().getTitle().equalsIgnoreCase(ChatColor.GOLD + "ストレージスタック")){
-            if(event.getView().getTopInventory().getItem(4) == null){
+        if (event.getView().getTitle().equalsIgnoreCase(ChatColor.GOLD + "ストレージスタック")) {
+            if(event.getView().getTopInventory().getItem(4) == null) {
                 return;
             }
 
             ItemStack i = event.getView().getTopInventory().getItem(4);
-            if (i == null || i.getType().equals(Material.AIR)){
+            if (i == null || i.getType().equals(Material.AIR)) {
                 return;
             }
 

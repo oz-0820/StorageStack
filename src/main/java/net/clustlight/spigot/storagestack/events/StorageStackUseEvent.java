@@ -40,5 +40,4 @@ public class StorageStackUseEvent extends Event {
         return handlers;
     }
 
-
 }

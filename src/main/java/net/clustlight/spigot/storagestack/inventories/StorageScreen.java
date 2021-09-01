@@ -31,8 +31,8 @@ public class StorageScreen implements InventoryHolder {
         }
     }
 
-    private ItemStack createItem(String name, Material mat) {
-        ItemStack item = new ItemStack(mat, 1);
+    private ItemStack createItem(String name, Material material) {
+        ItemStack item = new ItemStack(material, 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
         item.setItemMeta(meta);
