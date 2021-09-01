@@ -1,0 +1,6 @@
+name: StorageStack
+version: '${project.version}'
+main: net.clustlight.spigot.storagestack.StorageStack
+api-version: 1.17
+authors: [ 0scarLX ]
+description: StorageStack
