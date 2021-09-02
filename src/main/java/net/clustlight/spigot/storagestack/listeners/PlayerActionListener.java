@@ -51,7 +51,7 @@ public class PlayerActionListener implements Listener {
         } else if(action == Action.RIGHT_CLICK_AIR) {
 
             if(item.getItemMeta().hasEnchant(Enchantment.LUCK) && item.getItemMeta().hasCustomModelData()) {
-                Bukkit.getPluginManager().callEvent(new StorageStackTransactionEvent(player, item));
+                Bukkit.getPluginManager().callEvent(new StorageStackTransactionEvent(player, item, event.getHand()));
             }
         }
     }

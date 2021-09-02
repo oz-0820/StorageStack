@@ -40,7 +40,6 @@ public class StackListener implements Listener {
             player.getInventory().remove(item);
             player.getInventory().addItem(StorageBox.getItem());
         }
-        world.getBlockAt(location).setType(material);
         BukkitScheduler scheduler = Bukkit.getServer().getScheduler();
         scheduler.scheduleSyncDelayedTask(net.clustlight.spigot.storagestack.StorageStack.getPlugin(), () -> world.getBlockAt(location).setType(material), 0);
     }
@@ -66,7 +65,11 @@ public class StackListener implements Listener {
         meta.setCustomModelData(next);
         meta.setLore(Collections.singletonList(String.valueOf(next)));
         i.setItemMeta(meta);
-        player.getInventory().addItem(i);
+        if (event.isMainHand()) {
+            player.getInventory().setItemInMainHand(i);
+        } else {
+            player.getInventory().setItemInOffHand(i);
+        }
     }
 
 }
